@@ -82,6 +82,16 @@ namespace Sales.API.Data
 
                 await _context.SaveChangesAsync();
             }
+
+            if (!_context.Categories.Any())
+            {
+                _context.Categories.Add(new Category { Name = "Automotores" });
+                _context.Categories.Add(new Category { Name = "Tecnologia" });
+                _context.Categories.Add(new Category { Name = "Ferreteri" });
+                _context.Categories.Add(new Category { Name = "Acabados" });
+
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }
